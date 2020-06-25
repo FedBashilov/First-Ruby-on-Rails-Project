@@ -1,6 +1,6 @@
 class ProjectController < ApplicationController
   def index
-    @response = '{message: “ok”}';
+    @response = '{message: "ok"}';
   end
 
 end
