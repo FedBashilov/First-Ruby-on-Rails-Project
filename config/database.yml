@@ -1,10 +1,17 @@
-production:
- adapter: postgresql
- encoding: unicode
- pool: 5
+
+
+#production:
+ #adapter: postgresql
+ #encoding: unicode
+ #pool: 5
 
 development:
-  database: db/development.sqlite3
+  adapter: postgresql
+  database: mydb
+  username: theodor
+  password: firstproject
+  pool: 5
+  encoding: unicode
 
-test:
-  database: db/test.sqlite3
+#test:
+#  database: db/test.sqlite3

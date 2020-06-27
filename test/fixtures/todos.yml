@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  proj_id: 1
+  isCompleted: false
+
+two:
+  text: MyText
+  proj_id: 1
+  isCompleted: false
