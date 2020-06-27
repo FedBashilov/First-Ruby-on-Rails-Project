@@ -2,7 +2,12 @@ class ProjectsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     projects = Project.order('id');
-    render json: {status: 'SUCCESS', message: 'Loaded projects', data: projects}, status: :ok
+    response = Array.new;
+    projects.each do |project|
+      response << project.attributes;
+      response.last[:todos] = Todo.where(:proj_id => project[:id]);
+    end
+    render json: {status: 'SUCCESS', message: 'Loaded projects', data: response}, status: :ok
   end
 
   def update
