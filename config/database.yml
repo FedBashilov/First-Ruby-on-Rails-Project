@@ -5,7 +5,7 @@
  #encoding: unicode
  #pool: 5
 
-default:
+development:
   adapter: postgresql
   database: mydb
   username: theodor

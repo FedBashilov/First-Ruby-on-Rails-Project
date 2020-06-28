@@ -3,10 +3,20 @@ class TodosController < ApplicationController
 
   def create
     todo = Todo.new(todo_params)
-    if todo.save
-        render json: {status: 'SUCCESS', message: 'Saved todo', data: todo}, status: :ok
-    else
+    if params[:new_proj_title]
+      newProj = Project.new(:title => params[:new_proj_title]);
+      if newProj.save
+        todo[:proj_id] = newProj[:id];
+      else
         render json: {status: 'ERROR', message: 'Todo not saved', data: todo.errors}, status: :unptocessable_entity
+        return;
+      end
+    end
+
+    if todo.save
+      render json: {status: 'SUCCESS', message: 'Saved todo', data: todo}, status: :ok
+    else
+      render json: {status: 'ERROR', message: 'Todo not saved', data: todo.errors}, status: :unptocessable_entity
     end
   end
 
